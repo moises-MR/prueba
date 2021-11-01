@@ -20,8 +20,12 @@ module.exports = (req,res,next) =>{
     const token = authHeader.split(" ")[1];
     let revisarToken;
     try {
-        revisarToken = jwt.verify(token,"K*!O^%T&ACfFNugA4CxNpc8IWu");
+        revisarToken = jwt.verify(token,"K*!O^%T&ACfFNugA4CxNpc8IWu")
+
+
     } catch (error) {
+        
+
         res.json({status:401})
 
         error.statusCode = 500
@@ -32,6 +36,7 @@ module.exports = (req,res,next) =>{
     // Si el token es valido pero ya expiro o ocurrio algun problema
 
     if(!revisarToken){
+
          const error = new Error("No autenticado");
          error.statusCode = 401;
          throw error;

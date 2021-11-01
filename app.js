@@ -20,13 +20,13 @@ const app = express();
 const PORT = process.env.PORT || 9000
 
 const PORT_HTTP = process.env.PORT_HTTP;
-const PORT_HTTPS = process.env.PORT;
+const PORT_HTTPS = process.env.PORT_HTTPS;
 
 
 
-app.use((req,res,next) => {
-    if(req.secure) next(); else res.redirect(`https://${req.headers.host}${req.url}`)
-})
+// app.use((req,res,next) => {
+//     if(req.secure) next(); else res.redirect(`https://${req.headers.host}${req.url}`)
+// })
 
 
 app.use(cors());
